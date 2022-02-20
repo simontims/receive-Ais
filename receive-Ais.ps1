@@ -2,7 +2,7 @@ param($address="Any", $port=2020)
 
 # $MqttClient = [uPLibrary.Networking.M2Mqtt.MqttClient]("127.0.0.1")
 $openHABUri = "http://192.168.1.50:8080/rest/items/AISReceived"
-$AISHubUsername = "your username nere"
+$AISHubUsername = "your AISHub username"
 $stationLatitude = 0.0
 $stationLongitude = 0.0
 
