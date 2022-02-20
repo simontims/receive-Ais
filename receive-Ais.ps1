@@ -69,7 +69,9 @@ while($true)
 		
 		if($aisSentenceCount -ne 1)
 		{
+    			$sentenceNumber = $aisData.Split(',')[2]
 			Write-Host "$($aisSentenceCount) sentences present"
+			Write-Host "Sentence $($sentenceNumber) of $($aisSentenceCount)"
 		}
 		
 		# Decode AIS data
