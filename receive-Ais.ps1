@@ -69,7 +69,7 @@ while($true)
 		
 		if($aisSentenceCount -ne 1)
 		{
-    			$sentenceNumber = $aisData.Split(',')[2]
+    		$sentenceNumber = $aisData.Split(',')[2]
 			Write-Host "$($aisSentenceCount) sentences present"
 			Write-Host "Sentence $($sentenceNumber) of $($aisSentenceCount)"
 		}
@@ -89,7 +89,7 @@ while($true)
 		$nm = [math]::Round($m/1852,2)
 
 		# Get vessel name from cache (ASIHub API rate limit 60 seconds)
-		if ($vesselCache.ContainsKey($mmsi))
+		if ($vesselCache.count -gt 0 -and $vesselCache.ContainsKey($mmsi))
 		{
 			$vessel = $vesselCache[$mmsi]
 		}
