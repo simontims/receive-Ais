@@ -117,8 +117,7 @@ while($true)
 			}
 		}
 		
-		$vessel += " $($course) deg, $($sog)kn ($($nm) nm)" 
-		Write-Host "$($timeStamp) $($vessel) $($navigationStatus)"
+		Write-Host "$($timeStamp) $($vessel) $($course) deg, $($sog)kn ($($nm) nm) $($navigationStatus)"
 		Write-Host "$($aisData)"
 
         # Send MQTT
@@ -126,7 +125,14 @@ while($true)
 		# Send to OpenHAB
 		if ($openHABUri)
 		{
-			$ohData = $vessel
+			if ($navigationStatus -eq 'AtAnchor')
+			{
+				$ohData = "$($vessel) at anchor $($nm)"
+			}
+			else
+			{
+				$ohData = "$($vessel) $($course) deg, $($sog)kn ($($nm) nm)"
+			}
 			Invoke-WebRequest $openHABUri -Body $ohData -Method 'Post' -ContentType 'text/plain' | Out-Null
 		}
 
