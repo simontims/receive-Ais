@@ -27,7 +27,7 @@ Function MetresDistanceBetweenTwoGPSCoordinates($latitude1, $longitude1, $latitu
 
 if (Test-Path vesselCache.ps1xml)
 {
-	Import-Clixml -Path vesselCache.ps1xml | Out-Null
+	Import-Clixml -Path vesselCache.ps1xml
 }
 else
 {
