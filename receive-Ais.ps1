@@ -127,7 +127,7 @@ while($true)
 		{
 			if ($navigationStatus -eq 'AtAnchor')
 			{
-				$ohData = "$($vessel) at anchor ($($nm))"
+				$ohData = "$($vessel) at anchor ($($nm) nm)"
 			}
 			else
 			{
