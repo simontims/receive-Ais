@@ -43,7 +43,8 @@ catch{
 	exit -1
 }
 
-Write-Host "Press ESC to exit..." -fore yellow
+Write-Host "Waiting for connections on port $($port)" -fore yellow
+Write-Host "Press ESC to stop"
 Write-Host ""
 while($true)
 {
