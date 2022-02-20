@@ -85,7 +85,7 @@ while($true)
 		$mmsi = $response.sourceMmsi.mmsi
 		$sog = $response.speedOverGround
 		$course = $response.courseOverGround
-		$navigationStatus = $response.$navigationStatus
+		$navigationStatus = $response.navigationStatus
 		$m = MetresDistanceBetweenTwoGPSCoordinates $stationLatitude $stationLongitude $response.latitude $response.longitude
 		$nm = [math]::Round($m/1852,2)
 
