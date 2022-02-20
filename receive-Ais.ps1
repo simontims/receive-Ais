@@ -28,6 +28,10 @@ Function MetresDistanceBetweenTwoGPSCoordinates($latitude1, $longitude1, $latitu
 if (Test-Path vesselCache.ps1xml)
 {
 	$vesselCache = Import-Clixml -Path vesselCache.ps1xml
+	if ($vesselCache.count -eq 0)
+	{
+		$vesselCache = @{}		
+	}
 }
 else
 {
@@ -90,7 +94,7 @@ while($true)
 		$nm = [math]::Round($m/1852,2)
 
 		# Get vessel name from cache (ASIHub API rate limit 60 seconds)
-		if ($vesselCache.count -gt 0 -and $vesselCache.ContainsKey($mmsi))
+		if ($vesselCache.ContainsKey($mmsi))
 		{
 			$vessel = $vesselCache[$mmsi]
 		}
