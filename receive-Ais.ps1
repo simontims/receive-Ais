@@ -96,7 +96,7 @@ while($true)
 		}
 		else
 		{
-			# Get ship name from AISHub API
+			# Get vessel name from AISHub API
 			$uri = "https://data.aishub.net/ws.php?username=$($AISHubUsername)&format=1&output=json&compress=0&mmsi=$($mmsi)"
 			$json = Invoke-RestMethod -Uri $uri -Method 'GET' -SkipCertificateCheck
 
